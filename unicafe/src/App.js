@@ -21,14 +21,18 @@ const Statistics = ({ good, neutral, bad, all, average, percentPositive }) => {
   return (
     <div>
       <HeadingStats />
-      <Display
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        all={all}
-        average={average}
-        percentPositive={percentPositive}
-      />
+      {(all === 0) ? (
+        <p>No feedback given</p>
+      ) : (
+          <Display
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            all={all}
+            average={average}
+            percentPositive={percentPositive}
+          />
+        )}
     </div>
   )
 }
