@@ -3,19 +3,7 @@ import React, { useState } from 'react';
 const HeadingPage = () => <div><h1>Give Feedback</h1></div>
 const HeadingStats = () => <div><h1>Statistics</h1></div>
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
-
-const Display = ({ good, neutral, bad, all, average, percentPositive }) => {
-  return (
-    <div>
-      <p>Good {good}</p>
-      <p>Neutral {neutral}</p>
-      <p>Bad {bad}</p>
-      <p>All {all}</p>
-      <p>Average {average}</p>
-      <p>Positive {percentPositive} %</p>
-    </div>
-  )
-}
+const Statistic = ({ text, value }) => <p>{text} {value}</p>
 
 const Statistics = ({ good, neutral, bad, all, average, percentPositive }) => {
   return (
@@ -24,14 +12,14 @@ const Statistics = ({ good, neutral, bad, all, average, percentPositive }) => {
       {(all === 0) ? (
         <p>No feedback given</p>
       ) : (
-          <Display
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            all={all}
-            average={average}
-            percentPositive={percentPositive}
-          />
+          <div>
+            <Statistic text="Good" value={good} />
+            <Statistic text="Neutral " value={neutral} />
+            <Statistic text="Bad " value={bad} />
+            <Statistic text="All" value={all} />
+            <Statistic text="Average" value={average} />
+            <Statistic text="Positive" value={percentPositive} />
+          </div>
         )}
     </div>
   )
