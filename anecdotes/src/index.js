@@ -19,9 +19,7 @@ const App = ({ anecdotes }) => {
   const [votesArray, setVote] = useState(initialVotesArray);
 
   const handleRandomAnecdote = () => setSelected(Math.floor(Math.random() * anecdotes.length))
-  const handleVote = (selected) => () => {
-    setVote(votesArray.map((voteItem, index) => (index === selected) ? voteItem += 1 : voteItem))
-  }
+  const handleVote = (selected) => () => setVote(votesArray.map((voteItem, index) => (index === selected) ? voteItem += 1 : voteItem))
 
   return (
     <div>
