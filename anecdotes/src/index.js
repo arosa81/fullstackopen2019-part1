@@ -20,9 +20,7 @@ const App = ({ anecdotes }) => {
 
   const handleRandomAnecdote = () => setSelected(Math.floor(Math.random() * anecdotes.length))
   const handleVote = (selected) => () => {
-    const voteCopyArray = [...votesArray]
-    voteCopyArray[selected] += 1;
-    setVote(voteCopyArray)
+    setVote(votesArray.map((voteItem, index) => (index === selected) ? voteItem += 1 : voteItem))
   }
 
   return (
